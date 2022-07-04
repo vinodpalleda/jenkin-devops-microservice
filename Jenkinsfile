@@ -63,8 +63,7 @@ pipeline {
 			steps {
 				script {
 					//docker.withRegistry('', 'newdockerhub'){
-					// docker.withRegistry('', 'dockerhub') {
-					docker.withRegistry([ credentialsId: "newdockerhub", url: "" ]){
+					docker.withRegistry('', 'dockerhub') {
 						dockerImage.push();
 						dockerImage.push('latest');
 					}
