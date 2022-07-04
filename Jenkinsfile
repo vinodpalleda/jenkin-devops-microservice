@@ -53,7 +53,7 @@ pipeline {
 			steps {
 				//"docker build -t in28min/currency-exchange-devops:$env.BUILD_TAG"
 				script {
-					dockerImage = docker.build("superapp_micro_test:${env.BUILD_TAG}")
+					dockerImage = docker.build("superapp_micro:${env.BUILD_TAG}")
 				}
 
 			}
