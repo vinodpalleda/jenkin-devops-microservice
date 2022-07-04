@@ -64,8 +64,9 @@ pipeline {
 				script {
 					//docker.withRegistry('', 'newdockerhub'){
 					docker.withRegistry('', 'dockerhub') {
-						dockerImage.push();
-						dockerImage.push('latest');
+						dockerImage.push("$BUILD_NUMBER");
+                                                dockerImage.push('latest');
+						
 					}
 				}
 			}
