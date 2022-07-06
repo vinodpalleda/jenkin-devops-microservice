@@ -9,7 +9,7 @@ pipeline {
 		dockerHome = tool 'myDocker'
 		mavenHome = tool 'myMaven'
 		PATH = "$dockerHome/bin:$mavenHome/bin:$PATH"
-		 PATH = "$PATH:/opt/apache-maven-3.8.2/bin"
+		 PATH = "$PATH:/home/soft/apache-maven-3.8.6/bin"
 	}
 
 	stages {
