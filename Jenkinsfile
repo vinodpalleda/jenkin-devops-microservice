@@ -9,6 +9,7 @@ pipeline {
 		dockerHome = tool 'myDocker'
 		mavenHome = tool 'myMaven'
 		PATH = "$dockerHome/bin:$mavenHome/bin:$PATH"
+		 PATH = "$PATH:/opt/apache-maven-3.8.2/bin"
 	}
 
 	stages {
@@ -48,6 +49,16 @@ pipeline {
 				sh "mvn package -DskipTests"
 			}
 		}
+		 stage('SonarQube analysis') {
+//     def scannerHome = tool 'SonarScanner 4.0';
+        steps{
+        withSonarQubeEnv('sonarqube-8.9') { 
+        // If you have configured more than one global server connection, you can specify its name
+//      sh "${scannerHome}/bin/sonar-scanner"
+        sh "mvn sonar:sonar"
+    }
+        }
+        }
 
 		stage('Build Docker Image') {
 			steps {
