@@ -63,7 +63,7 @@ pipeline {
 			steps {
 				script {
 					//docker.withRegistry('https://registry.hub.docker.com', 'newdockerhub'){
-					docker.withRegistry('https://registry.hub.docker.com', 'vinoddockerhub') {
+					docker.withRegistry('', 'vinoddockerhub') {
 						dockerImage.push();
                                                 dockerImage.push('latest');
 						
